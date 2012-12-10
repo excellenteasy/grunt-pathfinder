@@ -12,7 +12,11 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     # Configuration to be run (and then tested).
-    # importjs: 
+    importjs:
+      main:
+        files: ['test/*_import.js']
+        method:
+          'RequireJS': 'test/main.js'
 
     clean: ['tmp/']
 
@@ -33,4 +37,4 @@ module.exports = (grunt) ->
   grunt.registerTask 'test', ['clean', 'importjs', 'nodeunit']
 
   # By default, lint and run all tests.
-  grunt.registerTask 'default', ['jshint', 'test']
+  grunt.registerTask 'default', ['test']

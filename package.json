@@ -31,7 +31,9 @@
     "grunt-contrib-jshint": "0.1.0",
     "grunt-contrib-clean": "0.4.0a",
     "grunt-contrib-nodeunit": "0.1.0",
-    "grunt": "~0.4.0a"
+    "grunt": "~0.4.0a",
+    "grunt-contrib-coffee": "~0.3.2",
+    "grunt-contrib-watch": "~0.1.4"
   },
   "keywords": [
     "gruntplugin"
