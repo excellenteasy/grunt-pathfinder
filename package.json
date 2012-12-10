@@ -1,35 +1,39 @@
 {
   "name": "grunt-importjs",
-  "version": "0.0.0",
-  "homepage": "https://github.com/excellenteasy/grunt-tasks/tree/importjs-master",
-  "description": "Detects JavaScript resources in a given directory and imports them into your app",
+  "description": "Detect JS dependencies and import them into your project",
+  "version": "0.1.0",
+  "homepage": "https://github.com/excellenteasy/grunt-tasks.git#importjs-master",
+  "author": {
+    "name": "David Pfahler",
+    "email": "david@excellenteasy.com"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/excellenteasy/grunt-tasks.git#importjs-master"
   },
-  "main": "Gruntfile.coffee",
+  "bugs": {
+    "url": "https://github.com/excellenteasy/grunt-tasks/issues"
+  },
+  "licenses": [
+    {
+      "type": "none",
+      "url": "https://github.com/excellenteasy/grunt-tasks.git#importjs-master/blob/master/LICENSE-none"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies": {
-    "optimist": "latest"
-  },
   "devDependencies": {
-    "grunt": "~0.4.0a",
-    "grunt-contrib-watch": "~0.1.4",
-    "grunt-contrib-coffee": "~0.3.2",
-    "grunt-contrib-nodeunit": "~0.1.1"
+    "grunt-contrib-jshint": "0.1.0",
+    "grunt-contrib-clean": "0.4.0a",
+    "grunt-contrib-nodeunit": "0.1.0",
+    "grunt": "~0.4.0a"
   },
   "keywords": [
-    "grunt",
-    "JavaScript",
-    "import",
-    "clinch",
-    "project",
-    "task",
-    "tool",
     "gruntplugin"
-  ],
-  "author": "David Pfahler",
-  "license": "none"
+  ]
 }
