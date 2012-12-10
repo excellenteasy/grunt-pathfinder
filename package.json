@@ -1,0 +1,35 @@
+{
+  "name": "grunt-importjs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/excellenteasy/grunt-tasks/tree/importjs-master",
+  "description": "Detects JavaScript resources in a given directory and imports them into your app",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/excellenteasy/grunt-tasks.git#importjs-master"
+  },
+  "main": "Gruntfile.coffee",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "optimist": "latest"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0a",
+    "grunt-contrib-watch": "~0.1.4",
+    "grunt-contrib-qunit": "~0.1.1",
+    "grunt-contrib-coffee": "~0.3.2"
+  },
+  "keywords": [
+    "grunt",
+    "JavaScript",
+    "import",
+    "clinch",
+    "project",
+    "task",
+    "tool",
+    "gruntplugin"
+  ],
+  "author": "David Pfahler",
+  "license": "none"
+}
