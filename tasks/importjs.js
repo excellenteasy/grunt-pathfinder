@@ -1,51 +1,43 @@
-/*
- * grunt-importjs
- * https://github.com/excellenteasy/grunt-tasks.git#importjs-master
- *
- * Copyright (c) 2012 David Pfahler
- * Licensed under the none license.
- */
+(function() {
+  'use strict';
 
-'use strict';
-
-module.exports = function(grunt) {
-
-  // Please see the grunt documentation for more information regarding task
-  // creation: https://github.com/gruntjs/grunt/blob/devel/docs/toc.md
-
-  grunt.registerMultiTask('importjs', 'Your task description goes here.', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
-
-    // Iterate over all specified file groups.
-    this.files.forEach(function(fileObj) {
-      // The source files to be concatenated. The "nonull" option is used
-      // to retain invalid files/patterns so they can be warned about.
-      var files = grunt.file.expand({nonull: true}, fileObj.src);
-
-      // Concat specified files.
-      var src = files.map(function(filepath) {
-        // Warn if a source file/pattern was invalid.
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.error('Source file "' + filepath + '" not found.');
-          return '';
+  module.exports = function(grunt) {
+    var fs, path;
+    fs = require('fs');
+    path = require('path');
+    return grunt.registerMultiTask('importjs', 'Your task description goes here.', function() {
+      var helpers, self, _ref;
+      if (typeof this.data.template !== 'string') {
+        grunt.log.writeln('No template provided.');
+        return;
+      }
+      if (!fs.existsSync(this.data.template)) {
+        grunt.log.writeln('Specified tempalte file does not exist.');
+        return;
+      }
+      helpers = require('grunt-lib-contrib').init(grunt);
+      if ((_ref = this.files) == null) {
+        this.files = helpers.normalizeMultiTaskFiles(this.data, this.target);
+      }
+      this.requiresConfig('importjs');
+      self = this;
+      return this.files.forEach(function(file) {
+        var compiled, srcFiles, template;
+        file.dest = path.normalize(file.dest);
+        srcFiles = grunt.file.expandFiles(file.src);
+        template = grunt.file.read(self.data.template);
+        if (srcFiles.length === 0) {
+          grunt.log.writeln('Unable to import; no valid source files were found.');
+          return;
         }
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(options.separator);
-
-      // Handle options.
-      src += options.punctuation;
-
-      // Write the destination file.
-      grunt.file.write(fileObj.dest, src);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + fileObj.dest + '" created.');
+        compiled = grunt.template.process(template, {
+          data: {
+            dependencies: srcFiles
+          }
+        });
+        return grunt.file.write(file.dest, compiled);
+      });
     });
-  });
+  };
 
-};
+}).call(this);

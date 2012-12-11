@@ -1,0 +1,1 @@
+define 'dir/module2', -> return 'barbaz'

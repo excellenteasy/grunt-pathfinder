@@ -1,6 +1,6 @@
 # grunt-importjs
 
-> Detect JS dependencies and import them into your project
+> Detect JS dependencies and insert them into a tempalte
 
 ## Getting Started
 _If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide._
@@ -32,11 +32,12 @@ In your project's Gruntfile, add a section named `importjs` to the data object p
 grunt.initConfig({
   importjs: {
     main: {
-      files: ['some/**/*.js'],
-      method: 'RequireJS': 'main.js'
+      files: 
+        'path/to/output.js': ['some/**/*.js', 'other/whatever.js'],
+      template: 'path/to/template.js'
     }
   }
-})
+});
 ```
 
 ### Options
@@ -51,14 +52,12 @@ Inside your Gruntfile, add a section named `importjs`. This section specifies th
 There are a number of options available. Please review the [minimatch options here](https://github.com/isaacs/minimatch#options). As well as some additional options as follows:
 
 #### files
-Type: `String|Array`
-
-This defines what file patterns this task will watch. Can be a string or an array of files and/or minimatch patterns.
-
-#### method & target
 Type: `object`
-Default: "RequireJS":"mains.js"
 
-`key:value` pair that describes `method:target`.
+`key:value` pair that describes `outputFile:filesToImport`.
+This defines where the compiled template output will be saved to (key) where dependencies are looked for (value). Value can be a string or an array of files and/or minimatch patterns.
 
-Currently, the only available method is `"RequireJS". You can specify the target filepath which is used as a template.
+#### template
+Type: `String`
+
+The template file will be parsed using `grunt.template` and the found js dependencies will be passed as data. The `dependencies` array is available in your template file.

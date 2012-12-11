@@ -1,0 +1,1 @@
+requirejs(['core/core'].concat([<% _.each(dependencies, function(js) { print('"'+js+'", ') }); %>]), function() {})
