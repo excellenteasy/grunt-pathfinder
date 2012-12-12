@@ -1,6 +1,6 @@
 # grunt-importjs
 
-> Detect JS dependencies and insert them into a tempalte
+> Detect JS dependencies and insert them into a template
 
 ## Getting Started
 _If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide._
