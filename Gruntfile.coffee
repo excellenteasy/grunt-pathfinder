@@ -20,13 +20,16 @@ module.exports = (grunt) ->
     clean: ['tmp/']
 
     coffee:
+      nodeunit:
+        files: 'test/importjs_test.js': 'test/importjs_test.coffee'
       test: 
-        files: 'test/dir/*.js': ['test/**/*.coffee']
+        files: 'test/dir/*.js': ['test/dir/**/*.coffee']
         rename: (destBase, destPath, options) -> path.join(destBase, destPath)
       tasks:
         files: 'tasks/*.js': ['tasks/*.coffee']
 
-    nodeunit: all: ['test/*_test.js']
+    nodeunit: 
+      all: ['test/importjs_test.js']
 
   # Actually load this plugin's task(s).
   grunt.loadTasks 'tasks'
