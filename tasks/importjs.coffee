@@ -46,3 +46,5 @@ module.exports = (grunt) ->
       compiled = grunt.template.process template, data: dependencies: srcFiles
 
       grunt.file.write file.dest, compiled
+
+      grunt.log.ok "Detected files #{srcFiles.toString()} written to #{file.dest}"
