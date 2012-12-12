@@ -10,7 +10,7 @@
       var actual, expected;
       test.expect(1);
       actual = grunt.file.read('tmp/output.js');
-      expected = 'requirejs(["core/core"].concat(["test/dir/module2.js", "test/dir/subfolder/module1.js", ]), function() {})';
+      expected = 'requirejs(["core/core"].concat(["test/dir/module2", "test/dir/subfolder/module1", ]), function() {})';
       test.equal(actual, expected, 'generated file correctly');
       return test.done();
     }
