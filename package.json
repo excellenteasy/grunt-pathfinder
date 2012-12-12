@@ -37,7 +37,8 @@
     "grunt": "~0.4.0a",
     "grunt-contrib-coffee": "~0.3.2",
     "grunt-contrib-watch": "~0.1.4",
-    "grunt-lib-contrib": "~0.4.0"
+    "grunt-lib-contrib": "~0.4.0",
+    "grunt-cli": "~0.1.3"
   },
   "keywords": [
     "gruntplugin"
