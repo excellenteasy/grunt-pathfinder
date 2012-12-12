@@ -29,7 +29,7 @@ module.exports = (grunt) ->
         files: 'tasks/*.js': ['tasks/*.coffee']
 
     nodeunit: 
-      all: ['test/importjs_test.js']
+      all: ['test/*_test.js']
 
   # Actually load this plugin's task(s).
   grunt.loadTasks 'tasks'
