@@ -1,35 +1,19 @@
-'use strict';
+(function() {
+  'use strict';
 
-var grunt = require('grunt');
+  var grunt;
 
-/*
-  ======== A Handy Little Nodeunit Reference ========
-  https://github.com/caolan/nodeunit
+  grunt = require('grunt');
 
-  Test methods:
-    test.expect(numAssertions)
-    test.done()
-  Test assertions:
-    test.ok(value, [message])
-    test.equal(actual, expected, [message])
-    test.notEqual(actual, expected, [message])
-    test.deepEqual(actual, expected, [message])
-    test.notDeepEqual(actual, expected, [message])
-    test.strictEqual(actual, expected, [message])
-    test.notStrictEqual(actual, expected, [message])
-    test.throws(block, [error], [message])
-    test.doesNotThrow(block, [error], [message])
-    test.ifError(value)
-*/
+  exports.importjs = {
+    all: function(test) {
+      var actual, expected;
+      test.expect(1);
+      actual = grunt.file.read('tmp/output.js');
+      expected = 'requirejs(["core/core"].concat(["test/dir/module2.js", "test/dir/subfolder/module1.js", ]), function() {})';
+      test.equal(actual, expected, 'generated file correctly');
+      return test.done();
+    }
+  };
 
-exports.importjs = {
-  default_options: function(test) {
-    test.expect(1);
-
-    var actual = grunt.file.read('tmp/output.js');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
-
-    test.done();
-  }
-};
+}).call(this);
