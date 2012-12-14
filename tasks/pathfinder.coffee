@@ -12,48 +12,68 @@ module.exports = (grunt) ->
 
   fs = require 'fs'
   path = require 'path'
+  _ = grunt.util._
 
   grunt.registerMultiTask 'pathfinder', 'Your task description goes here.', ->
 
-    # check config: template string
-    if typeof @data.template isnt 'string'
-      grunt.log.writeln 'No template provided.'
-      return
-
-    # check config: template file exists
-    if not fs.existsSync @data.template
-      grunt.log.writeln 'Specified tempalte file does not exist.'
-      return
-
-    helpers = require('grunt-lib-contrib').init(grunt)
-
-    @files ?= helpers.normalizeMultiTaskFiles @data, @target
-
     @requiresConfig 'pathfinder'
 
-    self = @
+    # === check config === #
+    # paths
+    if not _.isObject @data.paths
+      return grunt.log.writeln 'No "paths" config provided or incorrect format.'
 
-    @files.forEach (file) ->
+    # template string
+    if typeof @data.template isnt 'string'
+      return grunt.log.writeln 'No "template" config provided or incorrect format.'
 
-      file.dest = path.normalize file.dest
-      srcFiles  = grunt.file.expandFiles file.src
-      template = grunt.file.read self.data.template
+    # template file exists
+    if not fs.existsSync @data.template
+      return grunt.log.writeln 'Specified "template" file does not exist.'
 
-      if srcFiles.length is 0
-        grunt.log.writeln 'Unable to import; no valid source files were found.'
-        return
+    # output string
+    if typeof @data.output isnt 'string'
+      return grunt.log.writeln 'No "output" config provided or incorrect format.'
 
-      # create a setter function that has access to paths in this scope so you can manipulate paths from another scope
-      setSrcFiles = (newPaths) ->
-        srcFiles = newPaths
+    # store the data that is going to be passed to the template
+    templateData = {}
 
-      # emit event so someone can manipulate the files array before we give it to the template
-      grunt.event.emit 'pathfinder-paths', srcFiles, setSrcFiles, self.target
+    # helper that adds the files of a group to tempalteData
+    # a group is a key (string) of @data.paths
+    addTargetToTemplateData = (group) =>
 
-      # compile template
-      compiled = grunt.template.process template, data: paths: srcFiles
+      # find all files matching the pattern
+      files = grunt.file.expand @data.paths[group]
 
-      # write to output
-      grunt.file.write file.dest, compiled
+      # tolerate finding no files
+      if not files.length
+        grunt.log.writeln "Unable to find any files for group '#{group}'; using empty array as fallback"
+        templateData[group] = []
 
-      grunt.log.ok "Detected files #{srcFiles.toString()} written to #{file.dest}"
+      else
+        # create a setter function that has access to paths in this scope so you can manipulate paths from another scope
+        setFiles = (newPaths) -> files = newPaths
+
+        # emit event so someone can manipulate the files array before we give it to the template
+        grunt.event.emit 'pathfinder-paths', files, setFiles, @target, group
+
+        # inform user which files are detected
+        grunt.log.verbose.writeln "Found files for group #{group}: #{files}"
+
+        templateData[group] = files
+
+    addTargetToTemplateData(group) for group of @data.paths
+
+    # read tempalte file
+    template = grunt.file.read @data.template
+
+    # normalize output path
+    output = path.normalize @data.output
+
+    # compile template
+    compiled = grunt.template.process template, data: templateData
+
+    # write to output
+    grunt.file.write output, compiled
+
+    grunt.log.ok "All files of groups written to #{output}"
