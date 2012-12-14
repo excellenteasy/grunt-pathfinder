@@ -1,7 +1,7 @@
 {
   "name": "grunt-pathfinder",
   "description": "Find files and process their paths in a template.",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "homepage": "https://github.com/excellenteasy/grunt-pathfinder.git",
   "author": {
     "name": "David Pfahler",
