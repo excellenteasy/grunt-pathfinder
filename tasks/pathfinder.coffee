@@ -43,8 +43,17 @@ module.exports = (grunt) ->
         grunt.log.writeln 'Unable to import; no valid source files were found.'
         return
 
-      compiled = grunt.template.process template, data: dependencies: srcFiles
+      # create a setter function that has access to paths in this scope so you can manipulate paths from another scope
+      setSrcFiles = (newPaths) ->
+        srcFiles = newPaths
 
+      # emit event so someone can manipulate the files array before we give it to the template
+      grunt.event.emit 'pathfinder-paths', srcFiles, setSrcFiles, self.target
+
+      # compile template
+      compiled = grunt.template.process template, data: paths: srcFiles
+
+      # write to output
       grunt.file.write file.dest, compiled
 
       grunt.log.ok "Detected files #{srcFiles.toString()} written to #{file.dest}"
