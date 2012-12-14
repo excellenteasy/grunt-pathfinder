@@ -8,14 +8,28 @@
 
 'use strict'
 
+importless = require 'importless'
+
 module.exports = (grunt) ->
+
+  # importless example: filter paths
+  grunt.event.on 'pathfinder-paths', (paths, setPaths, target) ->
+    if target is 'importless'
+      paths = importless.cssToLess paths
+      imported = importless.getImported paths
+      paths = importless.stripImported paths, imported
+      setPaths paths
+      grunt.log.writeln "Importless: Stripped imported file(s) #{imported} from paths"
 
   grunt.initConfig
 
     pathfinder:
-      main:
-        files: 'tmp/output.js': ['test/dir/**/*.js']
-        template: 'test/template.js'
+      requirejs:
+        files: 'tmp/requirejs_output.js': ['test/dir/**/*.js']
+        template: 'test/requirejs_template.js'
+      importless:
+        files: 'tmp/importless_output.less': ['test/dir/**/*.{css,less}']
+        template: 'test/importless_template.less'
 
     clean: ['tmp/']
 
