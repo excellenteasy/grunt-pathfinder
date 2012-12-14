@@ -34,6 +34,12 @@ module.exports = (grunt) ->
           styles: ['test/dir/**/*.{css,less}']
         output: 'tmp/importless_output.less'
         template: 'test/importless_template.less'
+      index:
+        paths:
+          js: ['tmp/*.js']
+          less: ['tmp/*.less']
+        output: 'tmp/index_output.html'
+        template: 'test/index_template.html'
 
     clean: ['tmp/']
 
