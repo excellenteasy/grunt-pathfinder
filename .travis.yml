@@ -1,0 +1,8 @@
+secure: "ZMHnkdnb10vvoingMsb0lF4FMWera4j0VGIdy7KvJvgO7zu/iFOpPg8UEMvy\nfPjCBflW0lZw/HDsHUs84i45zCOuhjkMUid3O9SLOUSI1A2ObE+XJsyYHP0D\nu+/anTnOCIszOkCFah8LDI493sn/iFK8dvT1gxjjtILWNufznt8="
+language: node_js
+node_js:
+  - 0.8
+before_script:
+  - npm install -g grunt-cli
+notifications:
+  hipchat: <%= ENV['HIPCHAT'] %>@grunt-pathfinder
