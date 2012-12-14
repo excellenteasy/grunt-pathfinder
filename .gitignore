@@ -1,7 +1,7 @@
 node_modules
 npm-debug.log
 tmp
-tasks/importjs.js
-test/importjs_test.js
+tasks/pathfinder.js
+test/pathfinder_test.js
 test/dir/*.js
 test/dir/*/*.js

@@ -1,6 +1,6 @@
-# grunt-importjs
+# grunt-pathfinder
 
-> Detect JS dependencies and insert them into a template
+> Find files and process their paths in a template.
 
 ## Getting Started
 _If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide._
@@ -8,13 +8,13 @@ _If you haven't used [grunt][] before, be sure to check out the [Getting Started
 From the same directory as your project's [Gruntfile][Getting Started] and [package.json][], install this plugin with the following command:
 
 ```bash
-npm install git://github.com/excellenteasy/grunt-tasks.git#importjs-master --save-dev
+npm install grunt-pathfinder --save-dev
 ```
 
 Once that's done, add this line to your project's Gruntfile:
 
 ```js
-grunt.loadNpmTasks('grunt-importjs');
+grunt.loadNpmTasks('grunt-pathfinder');
 ```
 
 If the plugin has been installed correctly, running `grunt --help` at the command line should list the newly-installed plugin's task or tasks. In addition, the plugin should be listed in package.json as a `devDependency`, which ensures that it will be installed whenever the `npm install` command is run.
@@ -26,13 +26,13 @@ If the plugin has been installed correctly, running `grunt --help` at the comman
 ## The "importjs" task
 
 ### Overview
-In your project's Gruntfile, add a section named `importjs` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `pathfinder` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  importjs: {
+  pathfinder: {
     main: {
-      files: 
+      files:
         'path/to/output.js': ['some/**/*.js', 'other/whatever.js'],
       template: 'path/to/template.js'
     }
@@ -42,10 +42,10 @@ grunt.initConfig({
 
 ### Options
 
-## The importjs task
+## The pathfinder task
 
 ### Overview
-Inside your Gruntfile, add a section named `importjs`. This section specifies the possible files to import and the method of importing them.
+Inside your Gruntfile, add a section named `pathfinder`. This section specifies the possible files to import and the method of importing them.
 
 ### Settings
 

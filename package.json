@@ -1,23 +1,23 @@
 {
-  "name": "grunt-importjs",
-  "description": "Detect JS dependencies and import them into your project",
-  "version": "0.1.0",
-  "homepage": "https://github.com/excellenteasy/grunt-tasks.git#importjs-master",
+  "name": "grunt-pathfinder",
+  "description": "Find files and process their paths in a template.",
+  "version": "0.1.1",
+  "homepage": "https://github.com/excellenteasy/grunt-pathfinder.git",
   "author": {
     "name": "David Pfahler",
     "email": "david@excellenteasy.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/excellenteasy/grunt-tasks.git#importjs-master"
+    "url": "git://github.com/excellenteasy/grunt-pathfinder"
   },
   "bugs": {
-    "url": "https://github.com/excellenteasy/grunt-tasks/issues"
+    "url": "https://github.com/excellenteasy/grunt-pathfinder/issues"
   },
   "licenses": [
     {
-      "type": "none",
-      "url": "https://github.com/excellenteasy/grunt-tasks.git#importjs-master/blob/master/LICENSE-none"
+      "type": "MIT",
+      "url": "https://github.com/excellenteasy/grunt-pathfinder.git/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",

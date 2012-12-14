@@ -1,10 +1,10 @@
-# 
-# grunt-importjs
-# https://github.com/excellenteasy/grunt-tasks.git#importjs-master
-# 
+#
+# grunt-pathfinder
+# https://github.com/excellenteasy/grunt-pathfinder
+#
 # Copyright (c) 2012 David Pfahler
-# Licensed under the none license.
-# 
+# Licensed under the MIT license.
+#
 
 'use strict'
 
@@ -13,7 +13,7 @@ module.exports = (grunt) ->
   fs = require 'fs'
   path = require 'path'
 
-  grunt.registerMultiTask 'importjs', 'Your task description goes here.', ->
+  grunt.registerMultiTask 'pathfinder', 'Your task description goes here.', ->
 
     # check config: template string
     if typeof @data.template isnt 'string'
@@ -29,12 +29,12 @@ module.exports = (grunt) ->
 
     @files ?= helpers.normalizeMultiTaskFiles @data, @target
 
-    @requiresConfig 'importjs'
+    @requiresConfig 'pathfinder'
 
     self = @
-    
+
     @files.forEach (file) ->
-      
+
       file.dest = path.normalize file.dest
       srcFiles  = grunt.file.expandFiles file.src
       template = grunt.file.read self.data.template
@@ -42,7 +42,7 @@ module.exports = (grunt) ->
       if srcFiles.length is 0
         grunt.log.writeln 'Unable to import; no valid source files were found.'
         return
-      
+
       compiled = grunt.template.process template, data: dependencies: srcFiles
 
       grunt.file.write file.dest, compiled

@@ -2,7 +2,7 @@
 
 grunt = require('grunt')
 
-exports.importjs =
+exports.pathfinder =
   all: (test) ->
     test.expect 1
     actual = grunt.file.read 'tmp/output.js'
