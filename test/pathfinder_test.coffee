@@ -12,6 +12,6 @@ exports.pathfinder =
   importless: (test) ->
     test.expect 1
     actual = grunt.file.read 'tmp/importless_output.less'
-    expected = '// importless example template for grunt-pathfinder\n\n@import "test/dir/test.less";\n\n@import "test/dir/test2.less";\n'
+    expected = '// importless example template for grunt-pathfinder\n\n@import "test/dir/test.less";\n\n@import "test/dir/test2.less";\n\n'
     test.equal actual, expected, 'generated main less file correctly'
     test.done()
