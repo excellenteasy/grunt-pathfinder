@@ -1,0 +1,9 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <% _.each(less, function(lessFile) { %><link href="<%= lessFile %>" rel="stylesheet" type="text/less" /><% }); %>
+</head>
+<body>
+  <% _.each(js, function(jsFile) { %><script src="<%= jsFile %>"></script><% }); %>
+</body>
+</html>
