@@ -45,7 +45,7 @@ grunt.initConfig({
 ## The pathfinder task
 
 ### Overview
-Inside your Gruntfile, add a section named `pathfinder`. This section specifies the possible files to import and the method of importing them.
+Inside your Gruntfile, add a section named `pathfinder`. This section specifies the possible locations of files, the template which the found filepaths are passed to and the output file (compiled template).
 
 ### Settings
 
@@ -55,9 +55,9 @@ There are a number of options available. Please review the [minimatch options he
 Type: `object`
 
 `key:value` pair that describes `outputFile:filesToImport`.
-This defines where the compiled template output will be saved to (key) where dependencies are looked for (value). Value can be a string or an array of files and/or minimatch patterns.
+This defines where the compiled template output will be saved to (key) where files are being looked for (value). Value can be a string or an array of files and/or minimatch patterns.
 
 #### template
 Type: `String`
 
-The template file will be parsed using `grunt.template` and the found js dependencies will be passed as data. The `dependencies` array is available in your template file.
+The template file will be parsed using `grunt.template` and the found file paths will be passed as data. The `paths` array is available in your template file.
