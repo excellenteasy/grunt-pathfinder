@@ -4,5 +4,6 @@ node_js:
 before_script:
   - npm install -g grunt-cli
 notifications:
+  email: false
   hipchat:
     secure: "RVXpHjqOH3DyBKPLUkhhHJjMXMoQ87kxOGDi20ZThM4ea5YxNPZqw8OPn5jb\nLJpOXmb9amt0sNF9xMxCRpiE3w4O8rEt2Hng1tiXs1DMbJkB1Y8RUJrlBiBK\nbcdOaPTy0KX3mh2XoDk8obAbimnSv1qB5S82MIrytlfK4CMgpZw="
