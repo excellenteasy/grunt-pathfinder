@@ -25,12 +25,12 @@ module.exports = (grunt) ->
 
     pathfinder:
       requirejs:
-        files:
+        paths:
           js: ['test/dir/**/*.js']
         output: 'tmp/requirejs_output.js'
         template: 'test/requirejs_template.js'
       importless:
-        files:
+        paths:
           styles: ['test/dir/**/*.{css,less}']
         output: 'tmp/importless_output.less'
         template: 'test/importless_template.less'
