@@ -24,15 +24,18 @@ If the plugin has been installed correctly, running `grunt --help` at the comman
 [package.json]: https://npmjs.org/doc/json.html
 
 ### Overview
-Inside your Gruntfile, add a section named `pathfinder`. This section specifies the possible locations of files, the template which the found filepaths are passed to and the output file (compiled template).
+Inside your Gruntfile, add a section named `pathfinder`. This section specifies the groups of file (`paths`), the `template` to which the found filepaths are passed to and the `output` file (compiled template).
 
 ```js
 grunt.initConfig({
   pathfinder: {
-    main: {
-      files:
-        'path/to/output.js': ['some/**/*.js', 'other/whatever.js'],
-      template: 'path/to/template.js'
+    indexhtml: {
+      paths: {
+        css: ['dir/**/*.css', 'also/this/other.css'],
+        js: ['scripts/**/*.js']
+      },
+      template: 'template/index.html',
+      output: 'dist/index.html'
     }
   }
 });
@@ -42,16 +45,21 @@ grunt.initConfig({
 
 There are a number of options available. Please review the [minimatch options here](https://github.com/isaacs/minimatch#options). As well as some additional options as follows:
 
-#### files
+#### paths
 Type: `object`
 
-`key:value` pair that describes `outputFile:filesToImport`.
-This defines where the compiled template output will be saved to (key) where files are being looked for (value). Value can be a string or an array of files and/or minimatch patterns.
+`key:value` pairs that describes `group:pattern`.
+The name of the group is also the variable name that is available in the template. Hence, you can have multiple groups and multiple variables available in your template. The pattern is a minimatch pattern. The found files are stores as filepaths in the array variable (group).
 
 #### template
 Type: `String`
 
 The template file will be parsed using `grunt.template` and the found file paths will be passed as data. The `paths` array is available in your template file.
+
+#### output
+Type: `String`
+
+To which file the compiled template will be saved to.
 
 ### Events
 `grunt-pathfinder` emits and events using `grunt.event.emit` called `pathfinder-paths`. If you listen on this event, you can manipulate the paths array (e.g. filter it) and save it before it gets passed to the template. A use case of this is the [importless][] example config in the [Gruntfile](https://github.com/excellenteasy/grunt-pathfinder/blob/master/Gruntfile.coffee#L16-22).
