@@ -23,10 +23,8 @@ If the plugin has been installed correctly, running `grunt --help` at the comman
 [Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
 [package.json]: https://npmjs.org/doc/json.html
 
-## The "importjs" task
-
 ### Overview
-In your project's Gruntfile, add a section named `pathfinder` to the data object passed into `grunt.initConfig()`.
+Inside your Gruntfile, add a section named `pathfinder`. This section specifies the possible locations of files, the template which the found filepaths are passed to and the output file (compiled template).
 
 ```js
 grunt.initConfig({
@@ -39,11 +37,6 @@ grunt.initConfig({
   }
 });
 ```
-
-## The pathfinder task
-
-### Overview
-Inside your Gruntfile, add a section named `pathfinder`. This section specifies the possible locations of files, the template which the found filepaths are passed to and the output file (compiled template).
 
 ### Settings
 
