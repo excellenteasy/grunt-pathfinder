@@ -1,4 +1,4 @@
-# grunt-pathfinder
+# grunt-pathfinder [![Build Status](https://travis-ci.org/excellenteasy/grunt-pathfinder.png?branch=master)](https://travis-ci.org/excellenteasy/grunt-pathfinder)
 
 > Find files and process their paths in a template.
 
