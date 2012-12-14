@@ -38,7 +38,7 @@ module.exports = (grunt) ->
         files: 'test/pathfinder_test.js': 'test/pathfinder_test.coffee'
       test:
         files: 'test/dir/*.js': ['test/dir/**/*.coffee']
-        rename: (destBase, destPath, options) -> path.join(destBase, destPath)
+        rename: (destBase, destPath) -> destBase + destPath.replace(/\.coffee$/, '.js')
       tasks:
         files: 'tasks/*.js': ['tasks/*.coffee']
 
