@@ -1,5 +1,0 @@
-// importless example template for grunt-pathfinder
-
-@import "test/dir/test.less";
-
-@import "test/dir/test2.less";

@@ -47,8 +47,11 @@ module.exports = (grunt) ->
       nodeunit:
         files: 'test/pathfinder_test.js': 'test/pathfinder_test.coffee'
       test:
-        files: 'test/dir/*.js': ['test/dir/**/*.coffee']
-        rename: (destBase, destPath) -> destBase + destPath.replace(/\.coffee$/, '.js')
+        files: grunt.file.expandMapping(['test/dir/**/*.coffee'], '', {
+          rename: (destBase, destPath) -> destBase + destPath.replace(/\.coffee$/, '.js')
+        })
+        #rename: (destBase, destPath, options) -> path.join(destBase, destPath)
+        #rename: (destBase, destPath) -> destBase + destPath.replace(/\.coffee$/, '.js')
       tasks:
         files: 'tasks/*.js': ['tasks/*.coffee']
 
