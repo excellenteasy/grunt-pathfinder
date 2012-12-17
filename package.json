@@ -36,7 +36,6 @@
     "grunt-contrib-nodeunit": "~0.1.1",
     "grunt": "~0.4.0",
     "grunt-contrib-coffee": "~0.3.2",
-    "grunt-contrib-watch": "~0.1.4",
     "grunt-lib-contrib": "~0.4.0",
     "grunt-cli": "~0.1.3",
     "importless": "~0.1.4"

@@ -63,7 +63,6 @@ module.exports = (grunt) ->
 
   # These plugins provide necessary tasks.
   grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-nodeunit'
   grunt.loadNpmTasks 'grunt-contrib-clean'
 
