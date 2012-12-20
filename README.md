@@ -54,7 +54,7 @@ The name of the group is also the variable name that is available in the templat
 #### template
 Type: `String`
 
-The template file will be parsed using `grunt.template` and the found file paths will be passed as data. The `paths` array is available in your template file.
+The template file is parsed using [`grunt.template.process`](https://github.com/gruntjs/grunt/wiki/grunt.template) and the found file paths will be passed as data. The `paths` array is available in your template file.
 
 #### output
 Type: `String`
@@ -62,4 +62,4 @@ Type: `String`
 To which file the compiled template will be saved to.
 
 ### Events
-`grunt-pathfinder` emits and events using `grunt.event.emit` called `pathfinder-paths`. If you listen on this event, you can manipulate the paths array (e.g. filter it) and save it before it gets passed to the template. A use case of this is the [importless][] example config in the [Gruntfile](https://github.com/excellenteasy/grunt-pathfinder/blob/master/Gruntfile.coffee#L16-22).
+`grunt-pathfinder` emits and events using `grunt.event.emit` called `pathfinder-paths`. If you listen on this event, you can manipulate the paths array (e.g. filter it) and save it before it gets passed to the template. A use case of this is the [importless](https://github.com/excellenteasy/importless) example config in the [Gruntfile](https://github.com/excellenteasy/grunt-pathfinder/blob/master/Gruntfile.coffee#L16-22).
