@@ -6,4 +6,4 @@ before_script:
 notifications:
   email: false
   hipchat:
-    secure: "RVXpHjqOH3DyBKPLUkhhHJjMXMoQ87kxOGDi20ZThM4ea5YxNPZqw8OPn5jb\nLJpOXmb9amt0sNF9xMxCRpiE3w4O8rEt2Hng1tiXs1DMbJkB1Y8RUJrlBiBK\nbcdOaPTy0KX3mh2XoDk8obAbimnSv1qB5S82MIrytlfK4CMgpZw="
+    - secure: "XnnH5GKWngRizFX1W4fDPFLwjkQl2HKyyDe4NNRZf6Jj76LjsulsE1osdpgw\nd1m+KK+ka0MNRimrxW8seOGNRvXKCfvldLtw/3+ZNSy0kGoOcG+M0Fg8hIsl\nT+FAHGL2D0a71Mo3k6Bj8zOFmpNREMEGUJyerEhclVh6TS27QSk="
