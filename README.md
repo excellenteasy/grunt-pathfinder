@@ -63,3 +63,7 @@ To which file the compiled template will be saved to.
 
 ### Events
 `grunt-pathfinder` emits and events using `grunt.event.emit` called `pathfinder-paths`. If you listen on this event, you can manipulate the paths array (e.g. filter it) and save it before it gets passed to the template. A use case of this is the [importless](https://github.com/excellenteasy/importless) example config in the [Gruntfile](https://github.com/excellenteasy/grunt-pathfinder/blob/master/Gruntfile.coffee#L16-22).
+
+
+## Chat 
+If you have any questions, or want to talk, feel free to join our [chatroom](http://www.hipchat.com/g3OziPGoy).
